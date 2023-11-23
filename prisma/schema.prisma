@@ -1,0 +1,27 @@
+generator client {
+    provider = "prisma-client-js"
+    output   = "./generated/client"
+}
+
+// configuration for MySQL
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+// Define your database models
+model User {
+    id    Int    @id @default(autoincrement())
+    email String @unique
+    name  String
+    // Add other fields as needed
+}
+
+model Admin {
+    id    Int    @id @default(autoincrement())
+    email String @unique
+    name  String
+    // Add other fields as needed
+}
+
+// Add other models and relations as needed
